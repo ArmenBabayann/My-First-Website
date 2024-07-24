@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: d1b2f9f3-dada-4a9b-b619-e25aa354884e
+      url: 'https://armen.quarto.pub/my-website'

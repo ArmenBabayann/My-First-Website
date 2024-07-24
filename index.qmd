@@ -1,7 +1,78 @@
----
-title: "My Website"
----
+```{r}
+library(ggplot2)
+library(dplyr)
 
-This is a Quarto website.
+data <- data.frame(
+  name=c("Ararat","Gexarquniq","Armavir","Aragatsotn","Shirak","Tavush","Lori","Kotayq","Syuniq","Vayots Dzor"),
+  val=sample( 10 )
+)
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+library(forcats)
+
+
+data %>%
+  mutate(name = fct_reorder(name, val)) %>%
+  ggplot( aes(x=name, y=val)) +
+    geom_bar(stat="identity", fill="#f68060", alpha=.6, width=.4) +
+    coord_flip() +
+    xlab("") +
+    theme_bw()
+ 
+
+data %>%
+  mutate(name = fct_reorder(name, desc(val))) %>%
+  ggplot( aes(x=name, y=1-10)) +
+    geom_bar(stat="identity", fill="#f68060", alpha=.6, width=.4) +
+    coord_flip() +
+    xlab("") +
+    theme_bw()
+```
+
+```{r}
+library(ggplot2)
+
+temp <- c(10, 14, 17, 23, 20, 26, 34, 36, 32, 35, 38, 42)
+
+
+temperature_data <- data.frame(month, temp)
+
+
+ggplot(temperature_data, aes(x = month, y = temp)) +
+  geom_line(color = "blue", size = 1) + 
+  geom_point(color = "blue", size = 3) + 
+ scale_x_discrete(labels = c("May" = "May", "June" = "June", "July" = "July", "August" = "August")) +
+  labs(title = "Temperature in Sevan in July",
+       x = "Month-sJuly", y = "Temperature") +
+  theme_minimal() 
+```
+
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+temperatures <- c(-2, 0, 5, 12, 18, 22, 25, 24, 20, 14, 7, 1)
+
+
+temperature_data <- data.frame(month = factor(months, levels = months), temperature = temperatures)
+
+
+ggplot(temperature_data, aes(x = month, y = temperature)) +
+  geom_bar(stat = "identity", fill = "#66c2a5", color = "black", width = 0.7) +  
+  geom_text(aes(label = paste0(temperature, "°C")), vjust = -0.5, size = 5, fontface = "bold", color = "#1f78b4") +  
+  labs(title = "Monthly Average Temperatures", 
+       x = "Month", y = "Temperature (°C)") +  
+  theme_minimal() +  
+  theme(plot.title = element_text(hjust = 0.5, size = 20, face = "bold", margin = margin(b = 20)), 
+        axis.title.x = element_text(size = 16, face = "bold"),  
+        axis.title.y = element_text(size = 16, face = "bold"),  
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),  
+        panel.grid.major = element_blank(),  
+        panel.grid.minor = element_blank(),  
+        panel.border = element_blank(),  
+        axis.line = element_line(color = "black")) 
+
+```
+
