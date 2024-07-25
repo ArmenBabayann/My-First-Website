@@ -28,23 +28,6 @@ data %>%
     theme_bw()
 ```
 
-```{r}
-library(ggplot2)
-
-temp <- c(10, 14, 17, 23, 20, 26, 34, 36, 32, 35, 38, 42)
-
-
-temperature_data <- data.frame(month, temp)
-
-
-ggplot(temperature_data, aes(x = month, y = temp)) +
-  geom_line(color = "blue", size = 1) + 
-  geom_point(color = "blue", size = 3) + 
- scale_x_discrete(labels = c("May" = "May", "June" = "June", "July" = "July", "August" = "August")) +
-  labs(title = "Temperature in Sevan in July",
-       x = "Month-sJuly", y = "Temperature") +
-  theme_minimal() 
-```
 
 
 ```{r}

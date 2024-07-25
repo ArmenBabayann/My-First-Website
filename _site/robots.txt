@@ -1,1 +1,1 @@
-Sitemap: https://d1b2f9f3-dada-4a9b-b619-e25aa354884e.netlify.app/sitemap.xml
+Sitemap: https://armen.quarto.pub/my-website/sitemap.xml
