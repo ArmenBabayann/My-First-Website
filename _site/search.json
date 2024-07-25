@@ -12,5 +12,12 @@
     "title": "My Website",
     "section": "",
     "text": "library(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\ndata &lt;- data.frame(\n  name=c(\"Ararat\",\"Gexarquniq\",\"Armavir\",\"Aragatsotn\",\"Shirak\",\"Tavush\",\"Lori\",\"Kotayq\",\"Syuniq\",\"Vayots Dzor\"),\n  val=sample( 10 )\n)\n\nlibrary(forcats)\n\n\ndata %&gt;%\n  mutate(name = fct_reorder(name, val)) %&gt;%\n  ggplot( aes(x=name, y=val)) +\n    geom_bar(stat=\"identity\", fill=\"#f68060\", alpha=.6, width=.4) +\n    coord_flip() +\n    xlab(\"\") +\n    theme_bw()\n\n\n\n\n\n\n\ndata %&gt;%\n  mutate(name = fct_reorder(name, desc(val))) %&gt;%\n  ggplot( aes(x=name, y=1-10)) +\n    geom_bar(stat=\"identity\", fill=\"#f68060\", alpha=.6, width=.4) +\n    coord_flip() +\n    xlab(\"\") +\n    theme_bw()"
+  },
+  {
+    "objectID": "Final-2.html",
+    "href": "Final-2.html",
+    "title": "My Website",
+    "section": "",
+    "text": "library(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\ndata &lt;- data.frame(\n  name=c(\"Ararat\",\"Gexarquniq\",\"Armavir\",\"Aragatsotn\",\"Shirak\",\"Tavush\",\"Lori\",\"Kotayq\",\"Syuniq\",\"Vayots Dzor\"),\n  val=sample( 10 )\n)\n\nlibrary(forcats)\n\n\ndata %&gt;%\n  mutate(name = fct_reorder(name, val)) %&gt;%\n  ggplot( aes(x=name, y=val)) +\n    geom_bar(stat=\"identity\", fill=\"#f68060\", alpha=.6, width=.4) +\n    coord_flip() +\n    xlab(\"\") +\n    theme_bw()\n\n\n\n\n\n\n\ndata %&gt;%\n  mutate(name = fct_reorder(name, desc(val))) %&gt;%\n  ggplot( aes(x=name, y=1-10)) +\n    geom_bar(stat=\"identity\", fill=\"#f68060\", alpha=.6, width=.4) +\n    coord_flip() +\n    xlab(\"\") +\n    theme_bw()"
   }
 ]

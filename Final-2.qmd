@@ -1,0 +1,30 @@
+```{r}
+
+library(ggplot2)
+library(dplyr)
+
+data <- data.frame(
+  name=c("Ararat","Gexarquniq","Armavir","Aragatsotn","Shirak","Tavush","Lori","Kotayq","Syuniq","Vayots Dzor"),
+  val=sample( 10 )
+)
+
+library(forcats)
+
+
+data %>%
+  mutate(name = fct_reorder(name, val)) %>%
+  ggplot( aes(x=name, y=val)) +
+    geom_bar(stat="identity", fill="#f68060", alpha=.6, width=.4) +
+    coord_flip() +
+    xlab("") +
+    theme_bw()
+ 
+
+data %>%
+  mutate(name = fct_reorder(name, desc(val))) %>%
+  ggplot( aes(x=name, y=1-10)) +
+    geom_bar(stat="identity", fill="#f68060", alpha=.6, width=.4) +
+    coord_flip() +
+    xlab("") +
+    theme_bw()
+```
